@@ -32,6 +32,10 @@
     href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap"
     rel="stylesheet">
 
+    <!-- page js -->
+    <script src="https://unpkg.com/page/page.js"></script>
+
+    <script src="./assets/js/page_route.js" ></script>
   <!-- 
     - preload images
   -->
@@ -43,7 +47,7 @@
 
 </head>
 
-<body id="top">
+<body id="top" style=" width: 100%;">
 
   <!-- 
     - #HEADER
@@ -61,7 +65,8 @@
       </a>
 
       <nav class="navbar" data-navbar >
-        <div class="wrapper">
+        <div class="wrapper" style="  background: rgba(245, 245, 245, 0.932);
+   backdrop-filter: blur(10px);">
           <a href="#" class="logo">
             <img src="./assets/images/aits_logo-removebg-preview.png" width="162" height="50" alt="AITS LOGO">
           </a>
@@ -72,25 +77,20 @@
         </div>
 
         <ul class="navbar-list">
-
           <li class="navbar-item">
-            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+            <a href="/home" class="navbar-link">Home</a>
           </li>
-
           <li class="navbar-item">
-            <a href="#programs" class="navbar-link" data-nav-link>Programs</a>
+            <a href="/programs" class="navbar-link">Programs</a>
           </li>
-
           <li class="navbar-item">
-            <a href="#centers" class="navbar-link" data-nav-link>Training Centers</a>
+            <a href="/centers" class="navbar-link">Training Centers</a>
           </li>
-
-
           <li class="navbar-item">
-            <a href="#contact" class="navbar-link" data-nav-link>Contact Us</a>
+            <a href="/contact" class="navbar-link">Contact Us</a>
           </li>
-
         </ul>
+        
 
       </nav>
 
@@ -124,1476 +124,237 @@
     </div>
   </header>
 
+  <!-- main -->
+  <div id="app">
 
+ 
 
+  </div>
 
+<!-- home -->
+<main >
+  <article>
 
-  <main>
-    <article>
+    <!-- 
+      - #HERO
+    -->
 
-      <!-- 
-        - #HERO
-      -->
+    <section class="section hero has-bg-image" id="home" aria-label="home"
+      style="background-image: url('./assets/images/hero-bg.svg');">
+      <div class="container">
 
-      <section class="section hero has-bg-image" id="home" aria-label="home"
-        style="background-image: url('./assets/images/hero-bg.svg')">
-        <div class="container">
+        <div class="hero-content">
 
-          <div class="hero-content">
+          <h1 class="h1 section-title">
+            The Best Program to <span class="span">Enroll</span> for Computer Alternative
+          </h1>
 
-            <h1 class="h1 section-title">
-              The Best Program to <span class="span">Enroll</span> for Computer Alternative
-            </h1>
+          <p class="hero-text">
+            slogan dria or motto asdasdasdasdasdasdasdasdasdasdasdasdasd
+          </p>
 
-            <p class="hero-text">
-              slogan dria or motto asdasdasdasdasdasdasdasdasdasdasdasdasd
-            </p>
-
-            <a href="#programs" class="btn has-before">
-              <span class="span">Learn More</span>
-
-              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-            </a>
-
-          </div>
-
-          <figure class="hero-banner">
-
-            <div class="img-holder one" style="--width: 270; --height: 300;">
-              <img src="./assets/images/l_student_pic.jpg" width="270" height="300" alt="hero banner" class="img-cover">
-            </div>
-
-            <div class="img-holder two" style="--width: 240; --height: 370;">
-              <img src="./assets/images/l_student_pic_with_welmer.jpg" width="240" height="370" alt="hero banner"
-                class="img-cover">
-            </div>
-
-            <img src="./assets/images/hero-shape-1.svg" width="380" height="190" alt="" class="shape hero-shape-1">
-
-            <img src="./assets/images/hero-shape-2.png" width="622" height="551" alt="" class="shape hero-shape-2">
-
-          </figure>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #programs
-      -->
-
-      <section class="section course" id="programs" aria-label="course">
-        <div class="container">
-
-          <p class="section-subtitle"> Programs & Activities</p>
-
-          <h2 class="h2 section-title">Learn & Experience Quality Training to enhance you're computer skills</h2>
-
-          <ul class="grid-list">
-
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-                  <img src="./assets/images/computersystemaa.jpg" width="370" height="220" loading="lazy"
-                    alt="Build Responsive Real- World Websites with HTML and CSS" class="img-cover">
-                </figure>
-
-                <div class="abs-badge">
-                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">2 hours</span>
-                </div>
-
-                <div class="card-content">
-
-                  <span class="badge">Beginner</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Computer System Overview and Activities</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">1 Session</span>
-                    </li>
-
-
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <!-- typing -->
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-                  <img src="./assets/images/typing_lesson_pic.jpg" width="370" height="220" loading="lazy"
-                    alt="Keyboard Typing Lesson and Activities-" class="img-cover">
-                </figure>
-
-                <div class="abs-badge">
-                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">2 hours</span>
-                </div>
-
-                <div class="card-content">
-
-                  <span class="badge">Intermediate</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Keyboard Typing Lesson and Activities</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">1 Session</span>
-                    </li>
-
-
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-            <!-- word -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-                  <img src="./assets/images/New to Microsoft Word_ The 9 Best Tips You Need to Know.jpg" width="370"
-                    height="220" loading="lazy" alt="The Complete Camtasia Course for Content Creators"
-                    class="img-cover">
-                </figure>
-
-                <div class="abs-badge">
-                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">4 Hours</span>
-                </div>
-
-                <div class="card-content">
-
-                  <span class="badge">Beginner to Intermediate</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Microsoft Word Basics & Fundamentals</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">2 Session</span>
-                    </li>
-
-
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-            <!-- excel -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-                  <img src="./assets/images/Everything You Need to Know About Spill in Excel.jpg" width="370"
-                    height="220" loading="lazy" alt="The Complete Camtasia Course for Content Creators"
-                    class="img-cover">
-                </figure>
-
-                <div class="abs-badge">
-                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">4 Hours</span>
-                </div>
-
-                <div class="card-content">
-
-                  <span class="badge">Beginner to Intermediate</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Microsoft Excel Basics & Fundamentals</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">2 Session</span>
-                    </li>
-
-
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-            <!-- powerpoint -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-                  <img src="./assets/images/ChatGPT Image Apr 17, 2025, 01_13_51 PM.png" width="370" height="220"
-                    loading="lazy" alt="The Complete Camtasia Course for Content Creators" class="img-cover">
-                </figure>
-
-                <div class="abs-badge">
-                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">4 Hours</span>
-                </div>
-
-                <div class="card-content">
-
-                  <span class="badge">Beginner to Intermediate</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Microsoft PowerPoint Basics & Fundamentals</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">2 Session</span>
-                    </li>
-
-
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-            <!-- animation -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-                  <img src="./assets/images/The Top 3 Free 2D Animation Software Tools in 2018.jpg" width="370"
-                    height="220" loading="lazy" alt="The Complete Camtasia Course for Content Creators"
-                    class="img-cover">
-                </figure>
-
-                <div class="abs-badge">
-                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">4 Hours</span>
-                </div>
-
-                <div class="card-content">
-
-                  <span class="badge">Beginner to Intermediate</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Traditional Hand Drawn Using Pencil2d Animation</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">2 Session</span>
-                    </li>
-
-
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-            <!-- PHOTOSHOP -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-                  <img src="./assets/images/17 Essential Photoshop Terms Everyone Needs to Know.jpg" width="370"
-                    height="220" loading="lazy" alt="The Complete Camtasia Course for Content Creators"
-                    class="img-cover">
-                </figure>
-
-                <div class="abs-badge">
-                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">4 Hours</span>
-                </div>
-
-                <div class="card-content">
-
-                  <span class="badge">Beginner to Intermediate</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Adobe Phtoshop Design Training</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">2 Session</span>
-                    </li>
-
-
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-            <!-- Canva -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-                  <img src="./assets/images/Suite Visual de Canva para todo el mundo.jpg" width="370" height="220"
-                    loading="lazy" alt="The Complete Camtasia Course for Content Creators" class="img-cover">
-                </figure>
-
-                <div class="abs-badge">
-                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">4 Hours</span>
-                </div>
-
-                <div class="card-content">
-
-                  <span class="badge">Beginner to Intermediate</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Canva Design Training</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">2 Session</span>
-                    </li>
-
-
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-
-
-            <!-- figma -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-                  <img
-                    src="https://lagrandeourse.design/wp-content/uploads/2021/03/Comment-faire-un-prototype-sur-Figma-_.jpg"
-                    width="370" height="220" loading="lazy" alt="The Complete Camtasia Course for Content Creators"
-                    class="img-cover">
-                </figure>
-
-                <div class="abs-badge">
-                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                  <span class="span">4 Hours</span>
-                </div>
-
-                <div class="card-content">
-
-                  <span class="badge">Beginner to Intermediate</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Figma Prototyping Training</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">2 Session</span>
-                    </li>
-
-
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-
-
-          <!-- <a href="#" class="btn has-before">
-            <span class="span">Browse more courses</span>
+          <a href="#programs" class="btn has-before">
+            <span class="span">Learn More</span>
 
             <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-          </a> -->
+          </a>
 
         </div>
-      </section>
 
+        <figure class="hero-banner">
 
-      <!-- 
-        - #VIDEO
-      -->
-
-      <section class="video has-bg-image" aria-label="video"
-        style="background-image: url('./assets/images/video-bg.png')">
-        <div class="container">
-
-
-          <div class="video-card">
-
-            <div class="video-banner img-holder " style="--width: ; --height: ;">
-              <iframe width="100%" height="500" src="https://www.youtube.com/embed/K4TOrB7at0Y?si=emdpmeqd_bpnSRYh"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
-              <!-- <button class="play-btn" aria-label="play video">
-                <ion-icon name="play" aria-hidden="true"></ion-icon>
-              </button> -->
-            </div>
-
-            <!-- <img src="./assets/images/video-shape-1.png" width="1089" height="605" loading="lazy" alt=""
-              class="shape video-shape-1">
-
-            <img src="./assets/images/video-shape-2.png" width="158" height="174" loading="lazy" alt=""
-              class="shape video-shape-2"> -->
-
+          <div class="img-holder one" style="--width: 270; --height: 300;">
+            <img src="./assets/images/l_student_pic.jpg" width="270" height="300" alt="hero banner" class="img-cover">
           </div>
 
-        </div>
-      </section>
-
-
-      <!-- 
-        - #ABOUT
-      -->
-
-      <section class="section about" id="about" aria-label="about">
-        <div class="container">
-
-          <figure class="about-banner">
-
-            <div class="img-holder" style="--width: 520; --height: 370;">
-              <img src="./assets/images/us.jpg" width="520" height="370" loading="lazy" alt="about banner"
-                class="img-cover">
-            </div>
-
-            <!-- <img src="./assets/images/about-shape-1.svg" width="360" height="420" loading="lazy" alt=""
-              class="shape about-shape-1"> -->
-
-            <img src="./assets/images/about-shape-2.svg" width="371" height="220" loading="lazy" alt=""
-              class="shape about-shape-2">
-
-            <img src="./assets/images/about-shape-3.png" width="722" height="528" loading="lazy" alt=""
-              class="shape about-shape-3">
-
-          </figure>
-
-          <div class="about-content">
-
-            <p class="section-subtitle">About Us</p>
-
-            <h2 class="h2 section-title">
-              Over <span class="span">3</span> Years in <span class="span">Service</span> for Alternative Computer
-              training programs
-            </h2>
-
-            <p class="section-text">
-              Lorem ipsum dolor sit amet consectur adipiscing elit sed eiusmod ex tempor incididunt labore dolore magna
-              aliquaenim ad
-              minim.
-            </p>
-
-            <ul class="about-list">
-
-              <li class="about-item">
-                <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
-
-                <span class="span">Expert Trainers</span>
-              </li>
-
-              <li class="about-item">
-                <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
-
-                <span class="span">Great Consultant</span>
-              </li>
-
-              <li class="about-item">
-                <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
-
-                <span class="span">Quality Learning</span>
-              </li>
-
-            </ul>
-
-            <img src="./assets/images/about-shape-4.svg" width="100" height="100" loading="lazy" alt=""
-              class="shape about-shape-4">
-
+          <div class="img-holder two" style="--width: 240; --height: 370;">
+            <img src="./assets/images/l_student_pic_with_welmer.jpg" width="240" height="370" alt="hero banner"
+              class="img-cover">
           </div>
 
+          <img src="./assets/images/hero-shape-1.svg" width="380" height="190" alt="" class="shape hero-shape-1">
+
+          <img src="./assets/images/hero-shape-2.png" width="622" height="551" alt="" class="shape hero-shape-2">
+
+        </figure>
+
+      </div>
+    </section>
+
+
+
+
+
+
+ 
+
+
+    <!-- 
+      - #VIDEO
+    -->
+
+    <section class="video has-bg-image" aria-label="video"
+      style="background-image: url('./assets/images/video-bg.png')">
+      <div class="container">
+
+
+        <div class="video-card">
+
+          <div class="video-banner img-holder " style="--width: ; --height: ;">
+            <iframe width="100%" height="500" src="https://www.youtube.com/embed/K4TOrB7at0Y?si=emdpmeqd_bpnSRYh"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+            <!-- <button class="play-btn" aria-label="play video">
+              <ion-icon name="play" aria-hidden="true"></ion-icon>
+            </button> -->
+          </div>
+
+          <!-- <img src="./assets/images/video-shape-1.png" width="1089" height="605" loading="lazy" alt=""
+            class="shape video-shape-1">
+
+          <img src="./assets/images/video-shape-2.png" width="158" height="174" loading="lazy" alt=""
+            class="shape video-shape-2"> -->
+
         </div>
-      </section>
+
+      </div>
+    </section>
 
 
+    <!-- 
+      - #ABOUT
+    -->
 
-      <!-- 
-        - #STATE
-      -->
+    <section class="section about" id="about" aria-label="about">
+      <div class="container">
 
-      <section class="section stats" aria-label="stats">
-        <div class="container">
+        <figure class="about-banner">
 
-          <ul class="grid-list">
+          <div class="img-holder" style="--width: 520; --height: 370;">
+            <img src="./assets/images/us.jpg" width="520" height="370" loading="lazy" alt="about banner"
+              class="img-cover">
+          </div>
 
-            <li>
-              <div class="stats-card" style="--color: 170, 75%, 41%">
-                <h3 class="card-title">1.3k+</h3>
+          <!-- <img src="./assets/images/about-shape-1.svg" width="360" height="420" loading="lazy" alt=""
+            class="shape about-shape-1"> -->
 
-                <p class="card-text">Student Enrolled</p>
-              </div>
+          <img src="./assets/images/about-shape-2.svg" width="371" height="220" loading="lazy" alt=""
+            class="shape about-shape-2">
+
+          <img src="./assets/images/about-shape-3.png" width="722" height="528" loading="lazy" alt=""
+            class="shape about-shape-3">
+
+        </figure>
+
+        <div class="about-content">
+
+          <p class="section-subtitle">About Us</p>
+
+          <h2 class="h2 section-title">
+            Over <span class="span">3</span> Years in <span class="span">Service</span> for Alternative Computer
+            training programs
+          </h2>
+
+          <p class="section-text">
+            Lorem ipsum dolor sit amet consectur adipiscing elit sed eiusmod ex tempor incididunt labore dolore magna
+            aliquaenim ad
+            minim.
+          </p>
+
+          <ul class="about-list">
+
+            <li class="about-item">
+              <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
+
+              <span class="span">Expert Trainers</span>
             </li>
 
-            <li>
-              <div class="stats-card" style="--color: 351, 83%, 61%">
-                <h3 class="card-title">1k+</h3>
+            <li class="about-item">
+              <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
 
-                <p class="card-text">Graduated Student</p>
-              </div>
+              <span class="span">Great Consultant</span>
             </li>
 
-            <li>
-              <div class="stats-card" style="--color: 260, 100%, 67%">
-                <h3 class="card-title">97%</h3>
+            <li class="about-item">
+              <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
 
-                <p class="card-text">Satisfaction Rate</p>
-              </div>
-            </li>
-
-            <li>
-              <div class="stats-card" style="--color: 42, 94%, 55%">
-                <h3 class="card-title">4</h3>
-
-                <p class="card-text"> Training Center</p>
-              </div>
+              <span class="span">Quality Learning</span>
             </li>
 
           </ul>
 
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
-        - #centers
-      -->
-
-      <section class="section blog has-bg-image" id="centers" aria-label="blog"
-        style="background-image: url('./assets/images/blog-bg.svg')">
-        <div class="container">
-
-          <p class="section-subtitle">Training Centers</p>
-
-          <h2 class="h2 section-title">Visit Our Training Centers</h2>
-
-          <ul class="grid-list">
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 370;">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d184.86070522540788!2d126.05885943773029!3d8.044867324874327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sGOOGLE%20MAP%20TRENTO%20Rayhjahn%20Gaming!5e1!3m2!1sen!2sph!4v1744943329300!5m2!1sen!2sph"
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </figure>
-
-                <div class="card-content">
-
-                  <a href="#" class="card-btn" aria-label="read more">
-                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                  </a>
-
-                  <a href="#" class="card-subtitle">Purok8, Trento, Agusan del Sur</a>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Rayhjahn Gaming Cafe/Training Center</a>
-                  </h3>
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">09090909</span>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="man-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">Arthur Tagiamon <b>(Instructor)</b></span>
-                    </li>
-
-                  </ul>
-
-                  <p class="card-text">
-                    Near Trento Track and Field (Grand Stand)
-                  </p>
-
-
-
-                  <figure class="hero-banner">
-
-                    <div class="img-holder one" style="--width: 270; --height: 450;">
-                      <img src="./assets/images/rayjahn.png" width="270" height="300" alt="hero banner"
-                        class="img-cover">
-                    </div>
-
-                    <div class="img-holder two" style="--width: 240; --height: 370;">
-                      <img src="./assets/images/rayjahnkids.jpg" width="240" height="370" alt="hero banner"
-                        class="img-cover">
-                    </div>
-
-                    <img src="./assets/images/hero-shape-1.svg" width="180" height="190" alt=""
-                      class="shape hero-shape-1">
-
-
-                  </figure>
-                </div>
-
-              </div>
-
-
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 370;">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d184.7956223958301!2d126.35650182834554!3d8.186350278992844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32fdbbd30b51ede1%3A0xca0ad953cd6d8f8a!2sClick%20Zone%20Internet%20Cafe!5e1!3m2!1sen!2sph!4v1744945884179!5m2!1sen!2sph"
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </figure>
-
-                <div class="card-content">
-
-                  <a href="#" class="card-btn" aria-label="read more">
-                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                  </a>
-
-                  <a href="#" class="card-subtitle">59P4+HJ5, Espiritu St, Bislig, Surigao del Sur</a>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Click Zone Internet Cafe/Training Center</a>
-                  </h3>
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">09090909</span>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="man-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">Jay Salazar<b>(Instructor)</b></span>
-                    </li>
-
-                  </ul>
-
-                  <p class="card-text">
-                    Near SSS Office
-                  </p>
-
-
-
-                  <figure class="hero-banner">
-
-                    <div class="img-holder one" style="--width: 270; --height: 450;">
-                      <img src="./assets/images/clickzone_outside.png" width="270" height="300" alt="hero banner"
-                        class="img-cover">
-                    </div>
-
-                    <div class="img-holder two" style="--width: 240; --height: 370;">
-                      <img src="./assets/images/l_student_pic.jpg" width="240" height="370" alt="hero banner"
-                        class="img-cover">
-                    </div>
-
-                    <img src="./assets/images/hero-shape-1.svg" width="180" height="190" alt=""
-                      class="shape hero-shape-1">
-
-
-                  </figure>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 370;">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d369.50440977293!2d125.80878255828063!3d8.279399864759151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sph!4v1744947220158!5m2!1sen!2sph"
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </figure>
-
-                <div class="card-content">
-
-                  <a href="#" class="card-btn" aria-label="read more">
-                    <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-                  </a>
-
-                  <a href="#" class="card-subtitle">Poblacion,Lapaz, Agusan del Sur</a>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">CyberMak Cafe/Training Center</a>
-                  </h3>
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">09090909</span>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="man-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">Erwin Kim Carmelotes<b>(Instructor)</b></span>
-                    </li>
-
-                  </ul>
-
-                  <p class="card-text">
-                    Near Bakery
-                  </p>
-
-
-
-                  <figure class="hero-banner">
-
-                    <div class="img-holder one" style="--width: 270; --height: 450;">
-                      <img src="./assets/images/cybermak_outside.jpg" width="270" height="300" alt="hero banner"
-                        class="img-cover">
-                    </div>
-
-                    <div class="img-holder two" style="--width: 240; --height: 370;">
-                      <img src="./assets/images/cybermak_inside.png" width="240" height="370" alt="hero banner"
-                        class="img-cover">
-                    </div>
-
-                    <img src="./assets/images/hero-shape-1.svg" width="180" height="190" alt=""
-                      class="shape hero-shape-1">
-
-
-                  </figure>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-          <img src="./assets/images/blog-shape.png" width="186" height="186" loading="lazy" alt=""
-            class="shape blog-shape">
+          <img src="./assets/images/about-shape-4.svg" width="100" height="100" loading="lazy" alt=""
+            class="shape about-shape-4">
 
         </div>
-      </section>
 
+      </div>
+    </section>
 
-      <!-- 
-        - #staff
-      -->
 
-      <section class="section blog has-bg-image" id="contact" aria-label="blog"
-        style="background-image: url('./assets/images/blog-bg.svg')">
 
-        <img src="./assets/images/blog-shape.png" width="186" height="186" loading="lazy" alt=""
-          class="shape blog-shape">
+    <!-- 
+      - #STATE
+    -->
 
-        <div class="container">
+    <section class="section stats" aria-label="stats">
+      <div class="container">
 
-          <p class="section-subtitle"> AITS Staff</p>
+        <ul class="grid-list">
 
-          <h2 class="h2 section-title">Contact us</h2>
+          <li>
+            <div class="stats-card" style="--color: 170, 75%, 41%">
+              <h3 class="card-title">1.3k+</h3>
 
-          <ul class="grid-list">
-            <!-- wilmer -->
-            <li>
-              <div class="course-card">
-                <figure class="card-banner img-holder" style="--width: 370; --height: 320;">
-                  <img src="./assets/images/wilmer.jpg" width="370" height="320" loading="lazy"
-                    alt="Build Responsive Real- World Websites with HTML and CSS" class="img-cover">
-                </figure>
+              <p class="card-text">Student Enrolled</p>
+            </div>
+          </li>
 
-                <!-- <div class="abs-badge">
-                  <ion-icon name="glasses-outline"></ion-icon>
+          <li>
+            <div class="stats-card" style="--color: 351, 83%, 61%">
+              <h3 class="card-title">1k+</h3>
 
-                  <span class="span">Head of Office</span>
-                </div> -->
+              <p class="card-text">Graduated Student</p>
+            </div>
+          </li>
 
-                <div class="card-content">
+          <li>
+            <div class="stats-card" style="--color: 260, 100%, 67%">
+              <h3 class="card-title">97%</h3>
 
-                  <span class="badge">CEO</span>
+              <p class="card-text">Satisfaction Rate</p>
+            </div>
+          </li>
 
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Wilmer Ortega</a>
-                  </h3>
+          <li>
+            <div class="stats-card" style="--color: 42, 94%, 55%">
+              <h3 class="card-title">4</h3>
 
+              <p class="card-text"> Training Center</p>
+            </div>
+          </li>
 
+        </ul>
 
-                  <ul class="card-meta-list">
+      </div>
+    </section>
 
-                    <li class="card-meta-item">
-                      <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-                      <a href="tel:+09090909">
-                        <span class="span" style="color: blue;">09090909</span>
-                      </a>
-                    </li>
 
-                    <li class="card-meta-item">
 
-                      <ion-icon name="mail-outline"></ion-icon>
-                      <a href="mailto:wo9575599@gmail.com">
-                        <span class="span" style="color: blue;">wo9575599@gmail.com
-                        </span>
-                      </a>
-                    </li>
-                    <li class="card-meta-item">
 
-                      <ion-icon name="logo-facebook"></ion-icon>
-                      <a href="https://www.facebook.com/wilmer.ortega.458103">
-                        <span class="span" style="color: blue;">Wilmer Ortega
-                        </span>
-                      </a>
-                    </li>
-                    <li class="card-meta-item">
-                      <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
 
-                      <span class="span">
-                        Poblacion, Santa Josefa, Agusan del Sur
-                      </span>
-                    </li>
+  
 
-                    <li class="card-meta-item">
-                      <ion-icon name="home-outline"></ion-icon>
 
-                      <span class="span">
-                        Bukidnon
-                      </span>
-                    </li>
+  
 
-                  </ul>
 
-                </div>
+  </article>
+</main>
 
-              </div>
-            </li>
-            <!-- arthur -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 320;">
-                  <img
-                    src="https://scontent.fcgy2-4.fna.fbcdn.net/v/t39.30808-6/489449299_577975718632471_1260903064816139922_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFA5N34yobgi1TSp-iU4DFlA77YM1Ex4OwDvtgzUTHg7EcJX1hCN0gf_nsKISIT_MYv328vzTeLS0vS6dACp7b2&_nc_ohc=lgBTNlYs8ugQ7kNvwF36kPJ&_nc_oc=Adl9swE2DWqGcVKU_blWbSXcWSOSxdxUDJYe7xk9TLWyk926z2jtdm1SG7PXVkEfWVM&_nc_zt=23&_nc_ht=scontent.fcgy2-4.fna&_nc_gid=seV7Zd3zMpfuUmAgWittdg&oh=00_AfE7eajwRuKA_Gg4eKtNQwJ68a1kXao8jZul2o5n1jwwDg&oe=6807C3DE"
-                    width="370" height="320" loading="lazy"
-                    alt="Build Responsive Real- World Websites with HTML and CSS" class="img-cover">
-                </figure>
-
-                <!-- <div class="abs-badge">
-                  <ion-icon name="man-outline"></ion-icon>
-
-                  <span class="span">Staff</span>
-                </div> -->
-
-                <div class="card-content">
-
-                  <span class="badge">Educational Consultant/Instructor</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Arhtur Tagiamon</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-                      <a href="tel:+09090909">
-                        <span class="span" style="color: blue;">09090909</span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-
-                      <ion-icon name="mail-outline"></ion-icon>
-                      <a href="mailto:arthur@gmail.com">
-                        <span class="span" style="color: blue;">arthur@gmail.com
-                        </span>
-                      </a>
-                    </li>
-                    <li class="card-meta-item">
-
-                      <ion-icon name="logo-facebook"></ion-icon>
-                      <a href="https://www.facebook.com/profile.php?id=100092601441853">
-                        <span class="span" style="color: blue;">Duhduh Tagiamon
-                        </span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">
-                        Poblacion, Santa Josefa, Agusan del Sur
-                      </span>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="home-outline"></ion-icon>
-
-                      <span class="span">
-                        Bukidnon
-                      </span>
-                    </li>
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-
-
-            <!-- jay -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 320;">
-                  <img
-                    src="https://scontent.fcgy2-1.fna.fbcdn.net/v/t39.30808-6/486823299_1900596830707983_7931485812537888456_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEg1i4igBkVrXgw7d7opQILQe52hQwK3l1B7naFDAreXd35J08DoVbkTYfZjsfELof8qHCStRk6kWbZl37jrDzv&_nc_ohc=9Ct2lEmoiTEQ7kNvwEcQiVD&_nc_oc=Adl0hG_Kd1-cyHpXT38Ol1TGQyMQzq6K6MhPtLCVvABqGhHWWXKKCox6_QuUfkcXLh0&_nc_zt=23&_nc_ht=scontent.fcgy2-1.fna&_nc_gid=qCbZpM58VcJg8VoT3P_yIw&oh=00_AfHCVeX83NmZN_CaC9PFttCNUL_DedcY8mCkQMdq3MpEAQ&oe=6807D538"
-                    width="370" height="320" loading="lazy"
-                    alt="Build Responsive Real- World Websites with HTML and CSS" class="img-cover">
-                </figure>
-
-                <!-- <div class="abs-badge">
-                  <ion-icon name="man-outline"></ion-icon>
-
-                  <span class="span">Staff</span>
-                </div> -->
-
-                <div class="card-content">
-
-                  <span class="badge">Instructor</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Jay Salazar</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-                      <a href="tel:+09090909">
-                        <span class="span" style="color: blue;">09090909</span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-
-                      <ion-icon name="mail-outline"></ion-icon>
-                      <a href="mailto:arthur@gmail.com">
-                        <span class="span" style="color: blue;">jaysalazar@gmail.com
-                        </span>
-                      </a>
-                    </li>
-                    <li class="card-meta-item">
-
-                      <ion-icon name="logo-facebook"></ion-icon>
-                      <a href="https://www.facebook.com/jay.salazar.39794">
-                        <span class="span" style="color: blue;">Jay Salazar
-                        </span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">
-                        Poblacion, Santa Josefa, Agusan del Sur
-                      </span>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="home-outline"></ion-icon>
-
-                      <span class="span">
-                        Binucayan, Veruela, Agusan del Sur
-                      </span>
-                    </li>
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-            <!-- angel -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 320;">
-                  <img
-                    src="https://scontent.fcgy2-2.fna.fbcdn.net/v/t39.30808-6/480807186_1340822933540105_2319585205503203306_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGSGkcsYpkucdodhN5dPUfxPPuVJ7BdJ_c8-5UnsF0n94rfH9yp-M6Frel9gjqUoCHL1O1st8eWjpnN4utDs3rV&_nc_ohc=vCKtmhVAHMUQ7kNvwHGXj-k&_nc_oc=Adn6u9XKXkou7mf-FQU9K4xoa8JDfZ2mfuqmJmMhHlOtuVwMDPGHvPFjbp7r3bvIp9o&_nc_zt=23&_nc_ht=scontent.fcgy2-2.fna&_nc_gid=Q-ywqzhylr7evHLnMGfWdg&oh=00_AfG__wWBzine8BpErfSIAS8aeZGcaUATqrvLDatb2NBUWA&oe=6807DE9F"
-                    width="370" height="320" loading="lazy"
-                    alt="Build Responsive Real- World Websites with HTML and CSS" class="img-cover">
-                </figure>
-
-                <!-- <div class="abs-badge">
-                  <ion-icon name="man-outline"></ion-icon>
-
-                  <span class="span">Staff</span>
-                </div> -->
-
-                <div class="card-content">
-
-                  <span class="badge">Instructor</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Angel</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-                      <a href="tel:+09090909">
-                        <span class="span" style="color: blue;">09090909</span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-
-                      <ion-icon name="mail-outline"></ion-icon>
-                      <a href="mailto:angel@gmail.com">
-                        <span class="span" style="color: blue;">angel@gmail.com
-                        </span>
-                      </a>
-                    </li>
-                    <li class="card-meta-item">
-
-                      <ion-icon name="logo-facebook"></ion-icon>
-                      <a href="https://www.facebook.com/Duldulao12">
-                        <span class="span" style="color: blue;">An GEL
-                        </span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">
-                        Mangagoy, Bislig City, Agusan del Sur
-                      </span>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="home-outline"></ion-icon>
-
-                      <span class="span">
-                        Mangagoy, Bislig City, Agusan del Sur
-                      </span>
-                    </li>
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-            <!-- erwin -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 320;">
-                  <img src="assets/images/kimmy.jpg" width="370" height="320" loading="lazy"
-                    alt="Build Responsive Real- World Websites with HTML and CSS" class="img-cover">
-                </figure>
-
-                <!-- <div class="abs-badge">
-                  <ion-icon name="man-outline"></ion-icon>
-
-                  <span class="span">Staff</span>
-                </div> -->
-
-                <div class="card-content">
-
-                  <span class="badge">Instructor</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Erwin Kim Carmelotes</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-                      <a href="tel:+09090909">
-                        <span class="span" style="color: blue;">09090909</span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-
-                      <ion-icon name="mail-outline"></ion-icon>
-                      <a href="mailto:carmeloteserwinkim@gmail.com">
-                        <span class="span" style="color: blue;">carmeloteserwinkim@gmail.com
-                        </span>
-                      </a>
-                    </li>
-                    <li class="card-meta-item">
-
-                      <ion-icon name="logo-facebook"></ion-icon>
-                      <a href="https://www.facebook.com/Duldulao12">
-                        <span class="span" style="color: blue;">Erwin Kim Carmelotes
-                        </span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">
-                        Lagpan Street,Poblacion, Bunawan, Agusan del Sur
-                      </span>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="home-outline"></ion-icon>
-
-                      <span class="span">
-                        Del Monte, Veruela, Agusan del Sur
-                      </span>
-                    </li>
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-
-            <!-- lime kim -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 320;">
-                  <img
-                    src="https://scontent.fcgy2-1.fna.fbcdn.net/v/t39.30808-1/481901505_683552937337141_6270342576302940344_n.jpg?stp=c0.0.768.768a_dst-jpg_s200x200_tt6&_nc_cat=100&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeEYI7xWnzGiNMU4cxUBSkKX3T2EkVIhETTdPYSRUiERNBSRmcX6Q22LjG3urdhYmq3WeuvS-nmTBEVydCc8N5r9&_nc_ohc=6KI9Wyd3w6gQ7kNvwEdORCZ&_nc_oc=Admxp5jBNeidy5QXmCGGQhS1UTf6UOIXWAbrRIHAu6q6q6u62qiSph1S3Vw4A-JZQfg&_nc_zt=24&_nc_ht=scontent.fcgy2-1.fna&_nc_gid=2Mg7JCsSJIJtA7Lp_qzohQ&oh=00_AfFbxrlBp2W3yOB8pwlh7iTy_c3Hl_3NZD6Js7cO9pf4qg&oe=6807E5DC"
-                    width="370" height="320" loading="lazy"
-                    alt="Build Responsive Real- World Websites with HTML and CSS" class="img-cover">
-                </figure>
-
-                <!-- <div class="abs-badge">
-      <ion-icon name="man-outline"></ion-icon>
-
-      <span class="span">Staff</span>
-    </div> -->
-
-                <div class="card-content">
-
-                  <span class="badge">Educational Consultant</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Lime Kim</a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-                      <a href="tel:+09090909">
-                        <span class="span" style="color: blue;">09090909</span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-
-                      <ion-icon name="mail-outline"></ion-icon>
-                      <a href="mailto:limekim@gmail.com">
-                        <span class="span" style="color: blue;">limekim@gmail.com
-                        </span>
-                      </a>
-                    </li>
-                    <li class="card-meta-item">
-
-                      <ion-icon name="logo-facebook"></ion-icon>
-                      <a href="https://www.facebook.com/Duldulao12">
-                        <span class="span" style="color: blue;">Lime Kim
-                        </span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">
-                        Poblacion,Sta. Josefa, Agusan del Sur
-                      </span>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="home-outline"></ion-icon>
-
-                      <span class="span">
-                        Bukidnon
-                      </span>
-                    </li>
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-
-            <!-- Lea Ferrer Cabellon -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 320;">
-                  <img
-                    src="https://scontent.fcgy2-1.fna.fbcdn.net/v/t39.30808-1/486066979_1192315829186167_2358479332176414799_n.jpg?stp=c0.0.720.720a_dst-jpg_s200x200_tt6&_nc_cat=106&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeFdw3n6bauxBgCrLCn9TM7tIeGMIieR81Qh4YwiJ5HzVG1ZL1j8-Qkvs-x4VwWFi7qVgKwRXaVwusVq8xlaVyP6&_nc_ohc=mibq9oROfScQ7kNvwHL6xD5&_nc_oc=AdlN8h2AyhnTfrbu61zCZiI-NIaMwjAQ1RPFNLHSfngaO83FIQqTDWzf_wO_9FMMrTQ&_nc_zt=24&_nc_ht=scontent.fcgy2-1.fna&_nc_gid=gwK3lMy_4r4XQWTTOEv7TA&oh=00_AfFXKCKkp_ZHYH0kSou0L8k1CzVOt6qTb2cvaQaOfFUa8Q&oe=6807F847"
-                    width="370" height="320" loading="lazy"
-                    alt="Build Responsive Real- World Websites with HTML and CSS" class="img-cover">
-                </figure>
-
-                <!-- <div class="abs-badge">
-      <ion-icon name="man-outline"></ion-icon>
-
-      <span class="span">Staff</span>
-    </div> -->
-
-                <div class="card-content">
-
-                  <span class="badge">Educational Consultant</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Lea Ferrer Cabellon </a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-                      <a href="tel:+09090909">
-                        <span class="span" style="color: blue;">09090909</span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-
-                      <ion-icon name="mail-outline"></ion-icon>
-                      <a href="mailto:limekim@gmail.com">
-                        <span class="span" style="color: blue;">LeaFerrerCabellon@gmail.com
-                        </span>
-                      </a>
-                    </li>
-                    <li class="card-meta-item">
-
-                      <ion-icon name="logo-facebook"></ion-icon>
-                      <a href="https://www.facebook.com/friends/suggestions/?profile_id=100052232820781">
-                        <span class="span" style="color: blue;">Lea Ferrer Cabellon
-                        </span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">
-                        Poblacion,Sta. Josefa, Agusan del Sur
-                      </span>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="home-outline"></ion-icon>
-
-                      <span class="span">
-                        Trento, Agusan del Sur
-                      </span>
-                    </li>
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-
-            <!-- Joeminic Lihotan II  -->
-            <li>
-              <div class="course-card">
-
-                <figure class="card-banner img-holder" style="--width: 370; --height: 320;">
-                  <img
-                    src="https://scontent.fcgy2-2.fna.fbcdn.net/v/t39.30808-6/476220463_600380169455017_5193016233590693327_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEH7ty06Vsw0FUHp5Z55X-flzUvxKOZ_LqXNS_Eo5n8upmWHSvVxbmmX01jSVt_0OrmIsvoCa8GobNhbEw_I7WI&_nc_ohc=lnwFg_TmTzkQ7kNvwGSHM_z&_nc_oc=AdnKsFYu7HNmj9iAgA1_tU9Vp5FffUJo8azhhq5mca0ziH5LpDsA1RUq8fweAdhIqX0&_nc_zt=23&_nc_ht=scontent.fcgy2-2.fna&_nc_gid=7XhHsv0zCjxQO2ig83Vrqw&oh=00_AfEQqvqwGXEdwVdoj42cGkzMMKKTd2FSshWDx0tDVz4AjQ&oe=68080367"
-                    width="370" height="320" loading="lazy"
-                    alt="Build Responsive Real- World Websites with HTML and CSS" class="img-cover">
-                </figure>
-
-                <!-- <div class="abs-badge">
-      <ion-icon name="man-outline"></ion-icon>
-
-      <span class="span">Staff</span>
-    </div> -->
-
-                <div class="card-content">
-
-                  <span class="badge">Educational Consultant</span>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Joeminic Lihotan II </a>
-                  </h3>
-
-
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-                      <a href="tel:+09090909">
-                        <span class="span" style="color: blue;">09090909</span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-
-                      <ion-icon name="mail-outline"></ion-icon>
-                      <a href="mailto:limekim@gmail.com">
-                        <span class="span" style="color: blue;">JoeminicLihotanII@gmail.com
-                        </span>
-                      </a>
-                    </li>
-                    <li class="card-meta-item">
-
-                      <ion-icon name="logo-facebook"></ion-icon>
-                      <a href="https://www.facebook.com/friends/suggestions/?profile_id=100084491178978">
-                        <span class="span" style="color: blue;">Joeminic Lihotan II
-                        </span>
-                      </a>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-
-                      <span class="span">
-                        Poblacion,Sta. Josefa, Agusan del Sur
-                      </span>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <ion-icon name="home-outline"></ion-icon>
-
-                      <span class="span">
-                        Cabanglasan, Bukidnon
-                      </span>
-                    </li>
-
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-            <!-- <a href="#" class="btn has-before">
-            <span class="span">Browse more courses</span>
-
-            <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-          </a> -->
-
-        </div>
-      </section>
-
-
-    </article>
-  </main>
 
 
 
@@ -1782,6 +543,7 @@
   -->
   <script src="./assets/js/script.js" defer></script>
 
+ 
   <!-- 
     - ionicon link
   -->

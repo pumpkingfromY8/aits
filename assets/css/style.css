@@ -36,7 +36,8 @@
   --white_50: hsla(0, 0%, 100%, 0.5);
   --black_50: hsla(0, 0%, 0%, 0.5);
   --black_30: hsla(0, 0%, 0%, 0.3);
-  --kappel: hsl(170, 75%, 41%);
+  --kappel: rgba(9, 9, 167, 0.904);
+  /* --kappel: hsl(170, 75%, 41%); */
   --white: hsl(221, 42%, 90%);
 
   /**
@@ -312,7 +313,7 @@ body {
   left: 0;
   width: 100%;
   /* background-color: var(--white); */
-  background: transparent;
+  background: rgba(245, 245, 245, 0.932);
   backdrop-filter: blur(10px);
   padding-block: 12px;
   box-shadow: var(--shadow-1);
@@ -392,8 +393,13 @@ body {
 
 .navbar-list {
    padding: 15px 20px; 
+  color: rgba(9, 9, 167, 0.904);
+   background: rgba(245, 245, 245, 0.932);
+   backdrop-filter: blur(10px);
 
-
+   border-bottom-left-radius: 12px;
+   border-bottom-right-radius: 12px;
+   
 }
 
 .navbar-item:not(:last-child) { border-block-end: 1px solid var(--platinum); }
