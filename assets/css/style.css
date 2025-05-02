@@ -411,7 +411,7 @@ body {
   
 }
 
-.navbar-link:is(:hover, :focus) { color: var(--kappel); }
+.navbar-link:is(:hover, :focus) { color: var( --radical-red); }
 
 .overlay {
   position: fixed;
@@ -1408,3 +1408,16 @@ body {
 
 
 /* added  */
+
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
