@@ -29,3 +29,11 @@ function loadPage(url) {
     });
   });
   
+
+  page('/programs', () => {
+    loadPage('/pages/programs.html');
+    setTimeout(() => {
+      document.getElementById('top')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100); // slight delay to wait for content load
+  });
+  
