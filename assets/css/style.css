@@ -977,6 +977,14 @@ body {
 \*-----------------------------------*/
 
 /**
+ * responsive for smaller than 575px screen
+ */
+@media (max-width: 575px) {
+  body > header > div > a > img{
+    width: 40px;
+  }
+}
+/**
  * responsive for large than 575px screen
  */
 
@@ -1006,7 +1014,7 @@ body {
 
   .header-actions { gap: 30px; }
 
-
+  
 
   /**
    * HERO
