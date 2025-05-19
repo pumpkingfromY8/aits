@@ -457,7 +457,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 0.8fr;
   align-items: flex-start;
-  gap: 30px;
+  gap: 30px; 
 }
 
 .hero-banner .img-holder.one {
@@ -470,7 +470,9 @@ body {
   border-bottom-right-radius: 90px;
 }
 
-
+#home > div > figure > a > img{
+  animation: bounce 2.5s infinite;
+}
 
 
 
