@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
-  <!-- Supabase JS CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
 </head>
 
@@ -23,11 +22,101 @@
 
     <img src="./assets/images/blog-shape.png" width="186" height="186" loading="lazy" alt="" class="shape blog-shape">
 
+
+
     <div class="container">
 
 
 
       <h2 class="h2 section-title">Contact us</h2>
+
+
+
+
+      <!-- card -->
+      <div class="parent">
+        <div class="card">
+          <div class="logo">
+            <span class="circle circle1"></span>
+            <span class="circle circle2"></span>
+            <span class="circle circle3"></span>
+            <span class="circle circle4"></span>
+            <span class="circle circle5">
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.667 31.69" class="svg">
+                <path id="Path_6" data-name="Path 6"
+                  d="M12.827,1.628A1.561,1.561,0,0,1,14.31,0h2.964a1.561,1.561,0,0,1,1.483,1.628v11.9a9.252,9.252,0,0,1-2.432,6.852q-2.432,2.409-6.963,2.409T2.4,20.452Q0,18.094,0,13.669V1.628A1.561,1.561,0,0,1,1.483,0h2.98A1.561,1.561,0,0,1,5.947,1.628V13.191a5.635,5.635,0,0,0,.85,3.451,3.153,3.153,0,0,0,2.632,1.094,3.032,3.032,0,0,0,2.582-1.076,5.836,5.836,0,0,0,.816-3.486Z"
+                  transform="translate(0 0)"></path>
+                <path id="Path_7" data-name="Path 7"
+                  d="M75.207,20.857a1.561,1.561,0,0,1-1.483,1.628h-2.98a1.561,1.561,0,0,1-1.483-1.628V1.628A1.561,1.561,0,0,1,70.743,0h2.98a1.561,1.561,0,0,1,1.483,1.628Z"
+                  transform="translate(-45.91 0)"></path>
+                <path id="Path_8" data-name="Path 8"
+                  d="M0,80.018A1.561,1.561,0,0,1,1.483,78.39h26.7a1.561,1.561,0,0,1,1.483,1.628v2.006a1.561,1.561,0,0,1-1.483,1.628H1.483A1.561,1.561,0,0,1,0,82.025Z"
+                  transform="translate(0 -51.963)"></path>
+              </svg> -->
+              AITS
+            </span>
+
+          </div>
+          <div class="glass"></div>
+          <div class="content">
+            <span class="title" style="margin-left: 1rem">Official Contact Details</span>
+
+
+            <span class="text" style="line-height: .8">
+              For more information and inquiries regarding our computer training programs,
+              enrollment process, <br><br> schedules, and other concerns, please feel free to contact us
+              through the following details:
+            </span>
+
+
+
+            <span class=" text" style="margin-left: 1rem;">
+              <a href="mailto:info@aits.com"> 📧 Email Address: info@aits.com</a>
+            </span>
+
+
+
+            <span class="text" style="margin-left: 1rem;">
+              <a href="tel:09368010119"> 📱Cell Phone Number: 09368010119</a>
+            </span>
+
+
+            <span class="text" style="line-height: .8">
+              Our team is ready to assist you with your questions about our computer training
+              courses, certifications,<br><br> and other services. We look forward to hearing from you!
+            </span>
+
+
+          </div>
+          <div class="bottom">
+
+            <div class="social-buttons-container">
+
+              <button class="social-button .social-button1"
+                onclick="window.open('https://www.facebook.com/share/g/1AaJUBMtFb/', '_blank')">
+                <svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" class="svg">
+                  <path
+                    d="M15 3C8.373 3 3 8.373 3 15C3 20.627 6.657 25.356 11.438 27V18.563H8.898V15H11.438V12.281C11.438 9.781 12.93 8.406 15.215 8.406C16.305 8.406 17.438 8.594 17.438 8.594V11H16.188C14.953 11 14.563 11.766 14.563 12.563V15H17.313L16.875 18.563H14.563V27C19.343 25.356 23 20.627 23 15C23 8.373 17.627 3 15 3Z" />
+                </svg>
+              </button>
+
+
+            </div>
+            <div class="view-more" style="margin-right: 2rem">
+              <button class="view-more-button" onclick="location.reload()">View more</button>
+              <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
 
       <p class="section-subtitle"> AITS Staff</p>
       <!-- wilmer -->
@@ -45,7 +134,251 @@
   </section>
 
 
-  <script src="/routes/read_user.js"></script>
+  <style>
+    /* From Uiverse.io by Smit-Prajapati */
+    .parent {
+      width: 100%;
+      height: auto;
+      perspective: 1000px;
+      margin: auto auto;
+
+    }
+
+    .card {
+      height: 100%;
+      border-radius: 50px;
+      background: linear-gradient(135deg, rgba(4, 0, 255, 0.849) 0%, rgba(8, 48, 226, 0.767) 100%);
+      transition: all 0.5s ease-in-out;
+      transform-style: preserve-3d;
+      box-shadow: rgba(5, 71, 17, 0) 40px 50px 25px -40px, rgba(5, 71, 17, 0.2) 0px 25px 25px -5px;
+      padding-bottom: 7rem;
+      margin-bottom: 5rem;
+    }
+
+    .glass {
+      transform-style: preserve-3d;
+      position: absolute;
+      inset: 8px;
+      border-radius: 55px;
+      border-top-right-radius: 100%;
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0.349) 0%, rgba(255, 255, 255, 0.589) 100%);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      transform: translate3d(0px, 0px, 25px);
+      border-left: 1px solid white;
+      border-bottom: 1px solid white;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .content {
+      padding: 100px 60px 10px 30px;
+      transform: translate3d(0, 0, 26px);
+    }
+
+    .content .title {
+      display: block;
+      color: #080808;
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .content .text {
+      display: block;
+      color: rgba(0, 0, 0, 0.765);
+      font-size: 15px;
+      margin-top: 20px;
+      padding-left: 1rem;
+    }
+
+    .bottom {
+      padding: 10px 12px;
+      transform-style: preserve-3d;
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transform: translate3d(0, 0, 26px);
+      font-size: xx-large;
+    }
+
+    .bottom .view-more {
+      display: flex;
+      align-items: center;
+      width: 40%;
+      justify-content: flex-end;
+      transition: all 0.2s ease-in-out;
+
+    }
+
+    .bottom .view-more:hover {
+      transform: translate3d(0, 0, 10px);
+    }
+
+    .bottom .view-more .view-more-button {
+      background: none;
+      border: none;
+      color: #001dc3;
+      font-weight: bolder;
+      font-size: 12px;
+    }
+
+    .bottom .view-more .svg {
+      fill: none;
+      stroke: #0003c3;
+      stroke-width: 3px;
+      max-height: 15px;
+
+    }
+
+    .bottom .social-buttons-container {
+      display: flex;
+      gap: 10px;
+      transform-style: preserve-3d;
+    }
+
+    .bottom .social-buttons-container .social-button {
+      width: 30px;
+      aspect-ratio: 1;
+      padding: 5px;
+      background: rgb(255, 255, 255);
+      border-radius: 50%;
+      border: none;
+      display: grid;
+      place-content: center;
+      box-shadow: rgba(5, 71, 17, 0.5) 0px 7px 5px -5px;
+    }
+
+    .bottom .social-buttons-container .social-button:first-child {
+      transition: transform 0.2s ease-in-out 0.4s, box-shadow 0.2s ease-in-out 0.4s;
+    }
+
+    .bottom .social-buttons-container .social-button:nth-child(2) {
+      transition: transform 0.2s ease-in-out 0.6s, box-shadow 0.2s ease-in-out 0.6s;
+    }
+
+    .bottom .social-buttons-container .social-button:nth-child(3) {
+      transition: transform 0.2s ease-in-out 0.8s, box-shadow 0.2s ease-in-out 0.8s;
+    }
+
+    .bottom .social-buttons-container .social-button .svg {
+      width: 15px;
+      fill: #001589;
+    }
+
+    .bottom .social-buttons-container .social-button:hover {
+      background: black;
+    }
+
+    .bottom .social-buttons-container .social-button:hover .svg {
+      fill: white;
+    }
+
+    .bottom .social-buttons-container .social-button:active {
+      background: rgb(255, 234, 0);
+    }
+
+    .bottom .social-buttons-container .social-button:active .svg {
+      fill: black;
+    }
+
+    .logo {
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform-style: preserve-3d;
+    }
+
+    .logo .circle {
+      display: block;
+      position: absolute;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      top: 0;
+      right: 0;
+      box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      background: rgba(0, 249, 203, 0.2);
+      transition: all 0.5s ease-in-out;
+    }
+
+    .logo .circle1 {
+      width: 170px;
+      transform: translate3d(0, 0, 20px);
+      top: 8px;
+      right: 8px;
+    }
+
+    .logo .circle2 {
+      width: 140px;
+      transform: translate3d(0, 0, 40px);
+      top: 10px;
+      right: 10px;
+      -webkit-backdrop-filter: blur(1px);
+      backdrop-filter: blur(1px);
+      transition-delay: 0.4s;
+    }
+
+    .logo .circle3 {
+      width: 110px;
+      transform: translate3d(0, 0, 60px);
+      top: 17px;
+      right: 17px;
+      transition-delay: 0.8s;
+    }
+
+    .logo .circle4 {
+      width: 80px;
+      transform: translate3d(0, 0, 80px);
+      top: 23px;
+      right: 23px;
+      transition-delay: 1.2s;
+    }
+
+    .logo .circle5 {
+      width: 50px;
+      transform: translate3d(0, 0, 100px);
+      top: 30px;
+      right: 30px;
+      display: grid;
+      place-content: center;
+      transition-delay: 1.6s;
+    }
+
+    .logo .circle5 .svg {
+      width: 20px;
+      fill: white;
+    }
+
+    .parent:hover .card {
+      transform: rotate3d(1, 1, 0, 10deg);
+      box-shadow: rgba(5, 71, 17, 0.3) 30px 50px 25px -40px, rgba(5, 71, 17, 0.1) 0px 25px 30px 0px;
+    }
+
+    .parent:hover .card .bottom .social-buttons-container .social-button {
+      transform: translate3d(0, 0, 50px);
+      box-shadow: rgba(5, 71, 17, 0.2) -5px 20px 10px 0px;
+    }
+
+    .parent:hover .card .logo .circle2 {
+      transform: translate3d(0, 0, 60px);
+    }
+
+    .parent:hover .card .logo .circle3 {
+      transform: translate3d(0, 0, 80px);
+    }
+
+    .parent:hover .card .logo .circle4 {
+      transform: translate3d(0, 0, 100px);
+    }
+
+    .parent:hover .card .logo .circle5 {
+      transform: translate3d(0, 0, 120px);
+    }
+  </style>
 
 </body>
 

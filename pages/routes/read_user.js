@@ -20,7 +20,7 @@ async function loadUsers() {
             email,
             cell_no,
             access
-        `
+        `,
     )
     .order("id", { ascending: true });
 
@@ -46,6 +46,7 @@ async function loadUsers() {
 
     const listItem = document.createElement("li");
     listItem.innerHTML = `
+   
           <div class="course-card">
             <figure class="card-banner img-holder" style="--width: 370; --height: 320;">
               <img src="./assets/images/wilmer.jpg" width="370" height="320" loading="lazy"
