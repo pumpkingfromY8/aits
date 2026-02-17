@@ -19,19 +19,12 @@ async function loadUsers() {
             position,
             email,
             cell_no,
-            access,
-            fb,
-            address_current,
-            address_home,
-            profile_image
-        `,
+            access
+        `
     )
-    .order("position", { ascending: true });
+    .order("id", { ascending: true });
 
-  const container = document.getElementById("test");
-
-  console.log("Container element:", container);
-
+  const container = document.getElementById("userCardsContainer");
   container.innerHTML = ""; // Clear existing content
   console.log(container, "");
 
@@ -51,24 +44,19 @@ async function loadUsers() {
       user.lname
     }`;
 
-    const imageUrl = user.profile_image
-      ? `${SUPABASE_URL}/storage/v1/object/public/profile-images/${user.profile_image}`
-      : "../assets/images/temp_icon_peo.png";
-
     const listItem = document.createElement("li");
     listItem.innerHTML = `
           <div class="course-card">
             <figure class="card-banner img-holder" style="--width: 370; --height: 320;">
-           <img src="${imageUrl}" width="370" height="620"
-  loading="lazy" alt="${fullName}" class="img-cover">
-
+              <img src="./assets/images/wilmer.jpg" width="370" height="320" loading="lazy"
+                alt="${fullName}" class="img-cover">
             </figure>
 
             <div class="card-content">
-              <span class="badge" style="text-transform: capitalize">${user.position || "Member"}</span>
+              <span class="badge">${user.position || "Member"}</span>
 
               <h3 class="h3">
-                <a href="#" class="card-title" style="text-transform: capitalize">${fullName}</a>
+                <a href="#" class="card-title">${fullName}</a>
               </h3>
 
               <ul class="card-meta-list">
@@ -76,7 +64,7 @@ async function loadUsers() {
                   <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
                   <a href="tel:${user.cell_no}">
                     <span class="span" style="color: blue;">${
-                      user.cell_no || "09368010119  "
+                      user.cell_no
                     }</span>
                   </a>
                 </li>
@@ -84,25 +72,25 @@ async function loadUsers() {
                 <li class="card-meta-item">
                   <ion-icon name="mail-outline"></ion-icon>
                   <a href="mailto:${user.email}">
-                    <span class="span" style="color: blue;">${user.email || "wo9575599@gmail.com"} </span>
+                    <span class="span" style="color: blue;">${user.email}</span>
                   </a>
                 </li>
 
                 <li class="card-meta-item">
                   <ion-icon name="logo-facebook"></ion-icon>
-                  <a href="${user.fb}">
+                  <a href="#">
                     <span class="span" style="color: blue;">View Profile</span>
                   </a>
                 </li>
 
                 <li class="card-meta-item">
                   <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-                  <span class="span">${user.address_current || "Location Data Not in DB"}</span>
+                  <span class="span">Location Data Not in DB</span>
                 </li>
 
                 <li class="card-meta-item">
                   <ion-icon name="home-outline"></ion-icon>
-                  <span class="span">${user.address_home || "Location Data Not in DB"}</span>
+                  <span class="span">Access Level: ${user.access}</span>
                 </li>
               </ul>
             </div>
