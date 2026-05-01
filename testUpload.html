@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supabase File Upload</title>
+
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .preview {
+            margin-top: 20px;
+        }
+
+        img {
+            width: 250px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        .status {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+
+        /* From Uiverse.io by Yaya12085 */
+        .form {
+            background-color: #fff;
+            display: block;
+            padding: 1rem;
+            max-width: 350px;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            margin: 10% auto;
+        }
+
+        .form-title {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            font-weight: 600;
+            text-align: center;
+            color: #000;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .input-container input,
+        .form button,
+        input[type="file"],
+        select {
+            outline: none;
+            border: 1px solid #e5e7eb;
+            margin: 8px 0;
+        }
+
+        .input-container input,
+        input[type="file"],
+        select {
+            background-color: #fff;
+            padding: 1rem;
+            padding-right: 3rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            width: 300px;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            width: 80%;
+        }
+
+        .input-container span {
+            display: grid;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            place-content: center;
+
+        }
+
+        .input-container span svg {
+            color: #9CA3AF;
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .submit {
+            display: block;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+            background-color: #4F46E5;
+            color: #ffffff;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 500;
+            width: 100%;
+            border-radius: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* .signup-link {
+            color: #6B7280;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            text-align: center;
+        }
+
+        .signup-link a {
+            text-decoration: underline;
+        } */
+
+
+
+
+        /* SUCCESS OVERLAY STYLES    */
+
+        /* =========================
+   SUCCESS OVERLAY
+========================= */
+
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100vh;
+
+            background: rgba(0, 0, 0, 0.85);
+
+            display: none;
+
+            justify-content: center;
+            align-items: center;
+
+            z-index: 99999;
+        }
+
+        .success-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+
+            animation: popIn 0.4s ease;
+        }
+
+        .checkmark {
+            width: 100px;
+            height: 100px;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            background: #22c55e;
+
+            color: white;
+
+            font-size: 60px;
+            font-weight: bold;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 20px;
+        }
+
+        .success-box h1 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .success-box p {
+            color: #6b7280;
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+    <!-- From Uiverse.io by Yaya12085 -->
+
+    <form class="form">
+        <p class="form-title">Submit task</p>
+        <div class="input-container">
+            <input placeholder="Enter fullname" type="fullname">
+
+        </div>
+        <div class="input-container">
+
+            <select name="trainingCenter" id="trainingCenter" style="width: fit-content;">
+                <option value="none" hidden>Select training Center</option>
+                <option value="Nexus">Nexus Gaming Hub </option>
+                <option value="DHG">DHG -DOGHAUZ GAMING Cafe</option>
+                <option value="Click">Click Zone Internet Cafe</option>
+            </select>
+
+        </div>
+
+        <div class="input-container">
+            <h2>Upload File</h2>
+
+            <!-- File Input -->
+            <input type="file" id="fileInput" accept="image/*" />
+            <!-- Upload Button -->
+
+
+            <!-- Status -->
+            <div class="status" id="status"></div>
+
+            <!-- Preview -->
+            <div class="preview">
+                <img id="previewImage" style="margin: auto auto;width: 50%;" src="assets\images\uploadfile.gif"
+                    alt="Preview will appear here">
+            </div>
+        </div>
+        <button class="submit" type="submit">
+            Upload Task
+        </button>
+
+        <!-- <p class="signup-link">
+            No account?
+            <a href="">Sign up</a>
+        </p> -->
+    </form>
+
+
+
+    <!-- SUCCESS OVERLAY -->
+    <div id="successOverlay" class="success-overlay">
+
+        <div class="success-box">
+
+            <div class="checkmark">✓</div>
+
+            <h1>Upload Successful!</h1>
+
+            <p>Your task has been submitted successfully.</p>
+
+            <p id="countdownText">
+                Redirecting in 5 seconds...
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        // =========================
+        // SUPABASE CONFIG
+        // =========================
+
+        const SUPABASE_URL = "https://awfifqxnniqkrmhvbonn.supabase.co";
+
+        const SUPABASE_ANON_KEY =
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3ZmlmcXhubmlxa3JtaHZib25uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc4Mjg0NzcsImV4cCI6MjA4MzQwNDQ3N30.IkL3OUOS2m_JKTSI4RhGKZZDxH-n0sx2bDEkzO79vr0";
+
+        const supabaseClient = supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_ANON_KEY
+        );
+
+        // =========================
+        // FORM SUBMIT EVENT
+        // =========================
+
+        document.querySelector(".form").addEventListener("submit", async function (e) {
+
+            // Prevent page refresh
+            e.preventDefault();
+
+            await uploadFile();
+
+        });
+
+        // =========================
+        // UPLOAD FUNCTION
+        // =========================
+
+        async function uploadFile() {
+
+            const fullnameInput = document.querySelector('input[type="fullname"]');
+            const trainingCenter = document.getElementById("trainingCenter");
+
+            const fileInput = document.getElementById("fileInput");
+
+            const status = document.getElementById("status");
+            const previewImage = document.getElementById("previewImage");
+
+            // =========================
+            // GET VALUES
+            // =========================
+
+            const fullname = fullnameInput.value.trim();
+            const center = trainingCenter.value;
+
+            const file = fileInput.files[0];
+
+            // =========================
+            // VALIDATION
+            // =========================
+
+            if (!fullname) {
+                status.innerHTML = "Please enter fullname.";
+                return;
+            }
+
+            if (center === "none") {
+                status.innerHTML = "Please select training center.";
+                return;
+            }
+
+            if (!file) {
+                status.innerHTML = "Please select a file.";
+                return;
+            }
+
+            // =========================
+            // CREATE UNIQUE FILENAME
+            // =========================
+
+            const fileName = `${Date.now()}_${file.name}`;
+
+            status.innerHTML = "Uploading...";
+
+            // =========================
+            // UPLOAD FILE TO STORAGE
+            // =========================
+
+            const { data, error } = await supabaseClient
+                .storage
+                .from("aits_assets")
+                .upload(fileName, file, {
+                    cacheControl: "3600",
+                    upsert: false,
+                    contentType: file.type
+                });
+
+            // =========================
+            // HANDLE ERROR
+            // =========================
+
+            if (error) {
+
+                console.error(error);
+
+                status.innerHTML = `
+                Upload Failed: ${error.message}
+            `;
+
+                return;
+            }
+
+            // =========================
+            // GENERATE PUBLIC URL
+            // =========================
+
+            const imageUrl =
+                `${SUPABASE_URL}/storage/v1/object/public/aits_assets/${data.path}`;
+
+            // =========================
+            // SAVE DATA TO DATABASE
+            // =========================
+
+            const { error: insertError } = await supabaseClient
+                .from("submitted_tasks")
+                .insert([
+                    {
+                        fullname: fullname,
+                        training_center: center,
+                        image_url: imageUrl,
+                        image_name: fileName
+                    }
+                ]);
+
+            // =========================
+            // HANDLE INSERT ERROR
+            // =========================
+
+            if (insertError) {
+
+                console.error(insertError);
+
+                status.innerHTML = `
+                File uploaded but database insert failed:
+                ${insertError.message}
+            `;
+
+                return;
+            }
+
+            // =========================
+            // SHOW PREVIEW
+            // =========================
+
+            previewImage.src = imageUrl;
+
+            // =========================
+            // SUCCESS MESSAGE
+            // =========================
+
+            status.innerHTML = `
+            Upload Successful!
+        `;
+
+            console.log("Uploaded File:", data);
+            console.log("Image URL:", imageUrl);
+
+            // =========================
+            // RESET FORM
+            // =========================
+
+            document.querySelector(".form").reset();
+
+
+            // =========================
+            // SHOW SUCCESS OVERLAY
+            // =========================
+
+            const overlay = document.getElementById("successOverlay");
+
+            overlay.style.display = "flex";
+
+            // =========================
+            // COUNTDOWN REDIRECT
+            // =========================
+
+            let seconds = 5;
+
+            const countdownText = document.getElementById("countdownText");
+
+            const countdown = setInterval(() => {
+
+                seconds--;
+
+                countdownText.innerHTML =
+                    `Redirecting in ${seconds} seconds...`;
+
+                if (seconds <= 0) {
+
+                    clearInterval(countdown);
+
+                    // Go back to previous page
+                    window.history.back();
+
+                    // OR redirect manually:
+                    // window.location.href = "index.html";
+
+                }
+
+            }, 1000);
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
