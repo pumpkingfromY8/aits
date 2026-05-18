@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Work Hours Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            width: 380px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .calculate-btn {
+            background: #007bff;
+            color: white;
+        }
+
+        .calculate-btn:hover {
+            background: #0056b3;
+        }
+
+        .submit-btn {
+            background: #28a745;
+            color: white;
+        }
+
+        .submit-btn:hover {
+            background: #1e7e34;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Daily Work Hours Form</h2>
+
+        <!-- Month -->
+        <label>Month</label>
+        <select id="month">
+            <option value="">Select Month</option>
+            <option>January</option>
+            <option>February</option>
+            <option>March</option>
+            <option>April</option>
+            <option>May</option>
+            <option>June</option>
+            <option>July</option>
+            <option>August</option>
+            <option>September</option>
+            <option>October</option>
+            <option>November</option>
+            <option>December</option>
+        </select>
+
+        <!-- Day -->
+        <label>Day</label>
+        <input type="number" id="day" min="1" max="31" placeholder="Enter Day">
+
+        <!-- Time Inputs -->
+        <label>Morning Time In</label>
+        <input type="time" id="morningIn">
+
+        <label>Lunch Time Out</label>
+        <input type="time" id="lunchOut" value="12:00">
+
+        <label>Afternoon Time In</label>
+        <input type="time" id="afternoonIn" value="12:30">
+
+        <label>Night Time Out</label>
+        <input type="time" id="nightOut">
+
+        <!-- Buttons -->
+        <button class="calculate-btn" onclick="calculateHours()">
+            Calculate Hours
+        </button>
+
+        <button class="submit-btn" onclick="submitRecord()">
+            Submit Record
+        </button>
+
+        <!-- Result -->
+        <div class="result" id="result"></div>
+
+        <!-- Records Table -->
+        <table id="recordsTable">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Day</th>
+                    <th>Total Hours</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    </div>
+
+    <script>
+        let totalHoursText = "";
+
+        function timeToMinutes(time) {
+            let parts = time.split(":");
+            return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+        }
+
+        function calculateHours() {
+            let morningIn = document.getElementById("morningIn").value;
+            let lunchOut = document.getElementById("lunchOut").value;
+            let afternoonIn = document.getElementById("afternoonIn").value;
+            let nightOut = document.getElementById("nightOut").value;
+
+            if (!morningIn || !lunchOut || !afternoonIn || !nightOut) {
+                alert("Please fill in all time fields.");
+                return;
+            }
+
+            let morningWork =
+                timeToMinutes(lunchOut) - timeToMinutes(morningIn);
+
+            let afternoonWork =
+                timeToMinutes(nightOut) - timeToMinutes(afternoonIn);
+
+            let totalMinutes = morningWork + afternoonWork;
+
+            let hours = Math.floor(totalMinutes / 60);
+            let minutes = totalMinutes % 60;
+
+            totalHoursText = `${hours}h ${minutes}m`;
+
+            document.getElementById("result").innerHTML =
+                `Total Work Hours: ${totalHoursText}`;
+        }
+
+        function submitRecord() {
+            let month = document.getElementById("month").value;
+            let day = document.getElementById("day").value;
+
+            if (!month || !day) {
+                alert("Please select month and day.");
+                return;
+            }
+
+            if (totalHoursText === "") {
+                alert("Please calculate hours first.");
+                return;
+            }
+
+            let table = document
+                .getElementById("recordsTable")
+                .getElementsByTagName("tbody")[0];
+
+            let newRow = table.insertRow();
+
+            newRow.insertCell(0).innerHTML = month;
+            newRow.insertCell(1).innerHTML = day;
+            newRow.insertCell(2).innerHTML = totalHoursText;
+
+            alert("Record Submitted Successfully!");
+        }
+    </script>
+
+</body>
+
+</html>
