@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guess the Picture | School / LGU Activity</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="brand-icon">🧩</div><div><h1>Guess the Picture</h1><span>School / LGU Activity</span></div></div>
+  <button id="adminBtn" class="ghost top-admin">⚙ Admin</button>
+</header>
+
+<main>
+<section id="homeScreen" class="screen active">
+  <div class="hero card">
+    <div class="hero-icon">🖼️</div>
+    <h2>Guess the Name of the Picture</h2>
+    <p>Identify each picture before the timer runs out. Build your score and become the champion!</p>
+    <div class="setup-grid">
+      <label>Player Name<input id="playerName" maxlength="40" placeholder="Enter player name"></label>
+      <label>Category<select id="category"><option value="all">All Categories</option></select></label>
+      <label>Difficulty<select id="difficulty"><option value="all">All Levels</option><option>Easy</option><option>Medium</option><option>Hard</option></select></label>
+      <label>Questions<select id="questionCount"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></label>
+    </div>
+    <div class="rules"><div>⏱️<span>Timed questions</span></div><div>⭐<span>Up to 100 points</span></div><div>💡<span>Hints reduce points</span></div><div>❤️<span>Lives</span></div></div>
+    <button id="startBtn" class="primary big">▶ Start Game</button>
+    <p id="availability" class="small-note">Connecting to Supabase…</p>
+  </div>
+</section>
+
+<section id="gameScreen" class="screen">
+  <div class="game-header">
+    <div><span id="playerLabel" class="muted"></span><strong id="progressLabel"></strong></div>
+    <div class="score-box">⭐ <span id="score">0</span></div>
+    <div id="lives" class="lives"></div>
+  </div>
+  <div class="progress"><div id="progressBar"></div></div>
+  <div class="timer"><span>TIME LEFT</span><b id="timer">20</b></div>
+  <section class="picture-card card">
+    <div class="badges"><span id="categoryBadge"></span><span id="difficultyBadge" class="gray"></span></div>
+    <div class="picture"><img id="questionImage" alt="Picture to identify"></div>
+    <div id="hint" class="hint"></div>
+  </section>
+  <div class="answer"><input id="answer" autocomplete="off" placeholder="Type your answer…"><button id="submitBtn" class="primary">Submit</button></div>
+  <div class="game-actions"><button id="hintBtn" class="secondary">💡 Use Hint</button><button id="skipBtn" class="ghost">Skip</button></div>
+  <div id="feedback" class="feedback"></div>
+</section>
+
+<section id="resultScreen" class="screen">
+  <div class="result card">
+    <div id="resultIcon" class="result-icon">🏆</div><h2 id="resultTitle">Game Complete!</h2><p id="resultPlayer"></p>
+    <div class="final-score"><span id="finalScore">0</span><small>POINTS</small></div>
+    <div class="stats"><div><b id="correctCount">0</b><span>Correct</span></div><div><b id="wrongCount">0</b><span>Wrong</span></div><div><b id="accuracy">0%</b><span>Accuracy</span></div></div>
+    <div id="review" class="review-list"></div>
+    <button id="againBtn" class="primary big">Play Again</button>
+    <button id="homeBtn" class="ghost big">Back to Home</button>
+  </div>
+</section>
+
+<section id="loginScreen" class="screen">
+  <div class="admin-login card">
+    <div class="admin-symbol">🔐</div><h2>Admin Login</h2><p>Sign in with your Supabase Auth administrator account.</p>
+    <form id="loginForm"><label>Email<input id="adminEmail" type="email" required></label><label>Password<input id="adminPassword" type="password" required></label><div id="loginError" class="error"></div><button class="primary big">Sign In</button></form>
+    <button id="loginBack" class="ghost">← Back</button>
+  </div>
+</section>
+
+<section id="adminScreen" class="screen">
+  <div class="admin card">
+    <div class="admin-heading"><div><h2>⚙ Question Manager</h2><p>Questions and pictures are stored in Supabase.</p></div><div><button id="adminGameBtn" class="ghost">← Game</button><button id="logoutBtn" class="ghost">Sign out</button></div></div>
+    <div class="tabs"><button class="tab active" data-tab="addTab">➕ Add Question</button><button class="tab" data-tab="manageTab">🗃 Manage</button><button class="tab" data-tab="settingsTab">⚙ Settings</button></div>
+    <div id="addTab" class="tab-content active">
+      <form id="questionForm">
+        <input id="editId" type="hidden"><div class="form-grid">
+          <label>Answer / Picture Name *<input id="qAnswer" required placeholder="e.g. Philippine Eagle"></label>
+          <label>Category *<select id="qCategory" required></select></label>
+          <label>Difficulty *<select id="qDifficulty"><option>Easy</option><option>Medium</option><option>Hard</option></select></label>
+          <label>Hint<input id="qHint" placeholder="Optional clue"></label>
+          <label>Accepted Answers<input id="qAliases" placeholder="eagle, Philippine eagle"></label>
+          <label>Picture *<input id="qImage" type="file" accept="image/*"></label>
+        </div>
+        <div id="preview" class="upload-preview hidden"></div><div id="formError" class="error"></div>
+        <button class="primary" id="saveQuestionBtn">Upload & Add Question</button>
+        <button type="button" id="cancelEditBtn" class="ghost hidden">Cancel Edit</button>
+      </form>
+    </div>
+    <div id="manageTab" class="tab-content">
+      <div class="manage-toolbar"><input id="search" placeholder="Search questions…"><button id="refreshBtn" class="secondary">↻ Refresh</button></div><div id="questionList"></div>
+    </div>
+    <div id="settingsTab" class="tab-content">
+      <div class="settings-box"><h3>Game Settings</h3><label>Time per question (seconds)<input id="settingTime" type="number" min="5" max="120"></label><label>Starting lives<input id="settingLives" type="number" min="1" max="10"></label><button id="saveSettings" class="primary">Save Settings</button><p class="warning">Supabase Auth + Row Level Security protect admin operations. Never put a service-role/secret key in this frontend.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+<div id="toast" class="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
