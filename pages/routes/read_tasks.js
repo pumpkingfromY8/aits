@@ -293,6 +293,11 @@ async function loadActivities() {
 
                     </div>
 
+                     <a download="${imageUrl}" href="${imageUrl}"
+                         class="button button--flex">
+                         Download CV<i class="fas fa-download button__icon"></i>
+                    </a>
+
                 </div>
 
             `;
