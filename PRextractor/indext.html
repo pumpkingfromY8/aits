@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gemini OCR Excel Extractor</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        #preview {
+            max-width: 100%;
+            max-height: 500px;
+        }
+
+        .editable {
+            cursor: text;
+        }
+
+        .editable:focus {
+            outline: 2px solid #0d6efd;
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container py-4">
+
+        <h2 class="mb-4">
+            Purchase Request Image → Excel
+        </h2>
+
+        <!-- API KEY -->
+        <div class="mb-3">
+            <label class="form-label" hidden>
+                Gemini API Key
+            </label>
+
+            <input type="password" id="apiKey" class="form-control" placeholder="Paste your Gemini API key"
+                value="AIzaSyBmsAS6eUzDWbsmpUzo0SUw7Yb9Y0SpGFk" disabled hidden>
+        </div>
+
+        <!-- IMAGE -->
+        <div class="card mb-4">
+
+            <div class="card-body">
+
+                <h5>Upload Document</h5>
+
+                <input type="file" id="imageInput" class="form-control" accept="image/*">
+
+                <div class="mt-3 text-center">
+
+                    <img id="preview" class="img-fluid d-none">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- BUTTON -->
+
+        <button id="analyzeBtn" class="btn btn-primary mb-4">
+            Analyze with Gemini
+        </button>
+
+        <div id="loading" class="d-none">
+            <div class="spinner-border"></div>
+
+            Analyzing document...
+        </div>
+
+        <!-- DOCUMENT INFO -->
+
+        <div id="documentInfo" class="card mb-3 d-none">
+
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <label>PR No.</label>
+
+                        <input id="prNo" class="form-control">
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label>Office</label>
+
+                        <input id="office" class="form-control">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- scanning animation -->
+        <div id="scanOverlay">
+            <div class="scan-line"></div>
+        </div>
+
+        <!-- TABLE -->
+
+        <div id="tableContainer" class="table-responsive d-none">
+
+            <table id="resultTable" class="table table-bordered table-striped">
+
+                <thead class="table-dark">
+
+                    <tr>
+                        <th>ITEM NO.</th>
+                        <th>QUANTITY</th>
+                        <th>UNIT</th>
+                        <th>DESCRIPTION</th>
+                        <th>UNIT COST</th>
+                        <th>TOTAL COST</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="resultBody">
+                </tbody>
+
+                <tfoot>
+
+                    <tr>
+
+                        <th colspan="5" class="text-end">
+                            TOTAL
+                        </th>
+
+                        <th id="grandTotal">
+                            ₱0.00
+                        </th>
+
+                    </tr>
+
+                </tfoot>
+
+            </table>
+
+        </div>
+
+        <!-- ACTIONS -->
+
+        <div id="actions" class="d-none">
+
+            <button class="btn btn-success" onclick="addRow()">
+                + Add Row
+            </button>
+
+            <button class="btn btn-warning" onclick="exportExcel()">
+                Export to Excel
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="modelStatus" class="small text-muted mb-3"></div>
+
+    <!-- SheetJS -->
+
+
+    <!-- =====================================================
+     DEVELOPER FOOTER
+====================================================== -->
+
+    <footer class="developer-footer">
+
+        <div class="developer-footer-card">
+
+            <!-- Developer Sticker -->
+            <div class="developer-sticker">
+
+                <div class="sticker-glow"></div>
+
+                <img src="developer.png" alt="Developer" class="developer-image" styles="width: 150px; height: 150px;">
+
+
+
+            </div>
+
+
+            <!-- Developer Information -->
+            <div class="developer-info">
+
+                <div class="developer-label">
+                    CREATED BY
+                </div>
+
+                <h3>
+                    PUMPKING
+                </h3>
+
+                <p class="developer-role">
+                    VIBE CODER
+                </p>
+
+                <p class="developer-description">
+                    Building practical AI-powered tools for
+                    document processing, automation, and
+                    productivity.
+                </p>
+
+
+                <!-- Social Links -->
+
+                <div class="developer-socials">
+
+                    <a href="https://www.facebook.com/Duldulao12" target="_blank" class="social-btn facebook"
+                        title="Facebook">
+                        <span>f</span>
+                    </a>
+
+
+                    <a href="https://github.com/pumpkingfromY8" target="_blank" class="social-btn github"
+                        title="GitHub">
+                        <span>◉</span>
+                    </a>
+
+
+                    <a href="https://www.onlinejobs.ph/jobseekers/info/3263715" target="_blank"
+                        class="social-btn linkedin" title="LinkedIn">
+                        <span>in</span>
+                    </a>
+
+
+                    <a href="mailto:carmeloteserwinkim@gmail.com" class="social-btn email" title="Email">
+                        <span>✉</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Bottom Footer -->
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Gemini OCR Extractor
+            </span>
+
+            <span class="footer-divider">
+                •
+            </span>
+
+            <span>
+                Built with HTML • CSS • JavaScript • Gemini AI
+            </span>
+
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

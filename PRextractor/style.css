@@ -1,0 +1,1120 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+
+  color: #eaf2ff;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(99, 102, 241, 0.35),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(14, 165, 233, 0.28),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(168, 85, 247, 0.25),
+      transparent 40%
+    ),
+    #070b17;
+
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   ANIMATED BACKGROUND
+========================================================= */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+
+  width: 400px;
+  height: 400px;
+
+  border-radius: 50%;
+
+  filter: blur(100px);
+
+  opacity: 0.25;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+body::before {
+  background: #6366f1;
+
+  top: -150px;
+  left: -100px;
+
+  animation: floatBlob 12s ease-in-out infinite;
+}
+
+body::after {
+  background: #06b6d4;
+
+  bottom: -150px;
+  right: -100px;
+
+  animation: floatBlob 15s ease-in-out infinite reverse;
+}
+
+@keyframes floatBlob {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(80px, 40px);
+  }
+}
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container {
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.app-header {
+  text-align: center;
+
+  padding: 45px 20px 30px;
+}
+
+.app-logo {
+  width: 70px;
+  height: 70px;
+
+  margin: auto;
+  margin-bottom: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.9),
+    rgba(6, 182, 212, 0.9)
+  );
+
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.45);
+
+  font-size: 32px;
+
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.app-header h1 {
+  font-weight: 700;
+
+  font-size: clamp(28px, 5vw, 42px);
+
+  margin-bottom: 10px;
+
+  background: linear-gradient(90deg, #ffffff, #93c5fd, #c4b5fd);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.app-header p {
+  color: #94a3b8;
+
+  max-width: 650px;
+
+  margin: auto;
+
+  font-size: 15px;
+}
+
+/* =========================================================
+   GLASS CARD
+========================================================= */
+
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.09),
+    rgba(255, 255, 255, 0.035)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-radius: 22px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   API KEY
+========================================================= */
+
+.form-label {
+  color: #cbd5e1;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  margin-bottom: 7px;
+}
+
+.form-control {
+  background: rgba(15, 23, 42, 0.65) !important;
+
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+
+  color: #ffffff !important;
+
+  border-radius: 12px;
+
+  padding: 11px 14px;
+
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+
+.form-control:focus {
+  border-color: rgba(99, 102, 241, 0.8) !important;
+
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
+}
+
+/* =========================================================
+   UPLOAD AREA
+========================================================= */
+
+.upload-area {
+  position: relative;
+
+  min-height: 300px;
+
+  border: 2px dashed rgba(148, 163, 184, 0.3);
+
+  border-radius: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.3s,
+    background 0.3s,
+    transform 0.3s;
+
+  overflow: hidden;
+}
+
+.upload-area:hover {
+  border-color: rgba(99, 102, 241, 0.8);
+
+  background: rgba(99, 102, 241, 0.06);
+
+  transform: translateY(-2px);
+}
+
+.upload-icon {
+  font-size: 55px;
+
+  margin-bottom: 15px;
+
+  filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.7));
+
+  animation: uploadPulse 3s ease-in-out infinite;
+}
+
+@keyframes uploadPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.upload-area h5 {
+  color: #f8fafc;
+
+  font-weight: 600;
+}
+
+.upload-area p {
+  color: #94a3b8;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   IMAGE PREVIEW
+========================================================= */
+
+.preview-wrapper {
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 20px;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+}
+
+#preview {
+  max-width: 100%;
+
+  max-height: 550px;
+
+  border-radius: 14px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+
+  animation: imageAppear 0.5s ease;
+}
+
+@keyframes imageAppear {
+  from {
+    opacity: 0;
+
+    transform: scale(0.96) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* =========================================================
+   SCANNING ANIMATION
+========================================================= */
+
+.scanning-overlay {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  display: none;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+}
+
+.scanning-overlay.active {
+  display: block;
+}
+
+.scan-line {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #22d3ee,
+    #818cf8,
+    transparent
+  );
+
+  box-shadow:
+    0 0 15px #22d3ee,
+    0 0 30px #6366f1;
+
+  animation: scanDocument 2.5s ease-in-out infinite;
+}
+
+@keyframes scanDocument {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: 100%;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+/* =========================================================
+   ANALYZE BUTTON
+========================================================= */
+
+.analyze-btn {
+  position: relative;
+
+  width: 100%;
+
+  border: none;
+
+  border-radius: 14px;
+
+  padding: 14px 22px;
+
+  font-weight: 700;
+
+  color: white;
+
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.35);
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.analyze-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+}
+
+.analyze-btn:active {
+  transform: translateY(0);
+}
+
+.analyze-btn:disabled {
+  opacity: 0.7;
+
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   AI LOADING
+========================================================= */
+
+.ai-loading {
+  text-align: center;
+
+  padding: 35px 20px;
+}
+
+.ai-orb {
+  width: 75px;
+  height: 75px;
+
+  margin: auto;
+  margin-bottom: 20px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, #22d3ee, #6366f1 45%, transparent 70%);
+
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.6);
+
+  animation: aiPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes aiPulse {
+  0%,
+  100% {
+    transform: scale(0.9);
+
+    opacity: 0.7;
+
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+  }
+
+  50% {
+    transform: scale(1.15);
+
+    opacity: 1;
+
+    box-shadow: 0 0 50px rgba(34, 211, 238, 0.8);
+  }
+}
+
+.ai-loading h5 {
+  color: white;
+
+  margin-bottom: 6px;
+}
+
+.ai-loading p {
+  color: #94a3b8;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   MODEL STATUS
+========================================================= */
+
+#modelStatus {
+  min-height: 22px;
+
+  color: #67e8f9 !important;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  font-weight: 500;
+}
+
+/* =========================================================
+   RESULT SECTION
+========================================================= */
+
+.result-card {
+  margin-top: 25px;
+
+  animation: resultAppear 0.6s ease;
+}
+
+@keyframes resultAppear {
+  from {
+    opacity: 0;
+
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   DOCUMENT INFO
+========================================================= */
+
+.document-info {
+  background: rgba(15, 23, 42, 0.45);
+
+  border-radius: 14px;
+
+  padding: 18px;
+
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-container {
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#resultTable {
+  margin: 0;
+
+  color: #e2e8f0;
+
+  background: rgba(15, 23, 42, 0.5);
+}
+
+#resultTable thead {
+  background: linear-gradient(
+    90deg,
+    rgba(99, 102, 241, 0.7),
+    rgba(6, 182, 212, 0.6)
+  );
+}
+
+#resultTable th {
+  color: white;
+
+  border-color: rgba(255, 255, 255, 0.1);
+
+  font-size: 12px;
+
+  letter-spacing: 0.4px;
+
+  white-space: nowrap;
+}
+
+#resultTable td {
+  background: rgba(15, 23, 42, 0.4);
+
+  color: #e2e8f0;
+
+  border-color: rgba(255, 255, 255, 0.08);
+
+  transition: background 0.2s;
+}
+
+#resultTable tbody tr:hover td {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+#resultTable td[contenteditable="true"] {
+  cursor: text;
+
+  outline: none;
+
+  transition:
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+#resultTable td[contenteditable="true"]:focus {
+  background: rgba(99, 102, 241, 0.12);
+
+  box-shadow: inset 0 0 0 2px rgba(99, 102, 241, 0.7);
+}
+
+/* =========================================================
+   TABLE FOOTER
+========================================================= */
+
+#resultTable tfoot {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+#grandTotal {
+  color: #67e8f9 !important;
+
+  font-weight: 700;
+
+  font-size: 16px;
+}
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.action-btn {
+  border-radius: 11px;
+
+  padding: 10px 18px;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   STATUS BADGE
+========================================================= */
+
+.status-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  background: rgba(34, 197, 94, 0.1);
+
+  border: 1px solid rgba(34, 197, 94, 0.25);
+
+  color: #86efac;
+
+  font-size: 12px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow: 0 0 10px #22c55e;
+
+  animation: statusBlink 1.5s infinite;
+}
+
+@keyframes statusBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.5);
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.8);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .app-header {
+    padding-top: 30px;
+  }
+
+  .glass-card {
+    border-radius: 16px;
+  }
+
+  .upload-area {
+    min-height: 220px;
+  }
+
+  #resultTable {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   DEVELOPER FOOTER
+========================================================= */
+
+.developer-footer {
+  margin-top: 70px;
+
+  padding: 0 0 30px;
+}
+
+/* =========================================================
+   FOOTER CARD
+========================================================= */
+
+.developer-footer-card {
+  position: relative;
+
+  max-width: 900px;
+
+  margin: auto;
+
+  min-height: 220px;
+
+  padding: 35px 45px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 35px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.035)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 28px;
+
+  backdrop-filter: blur(20px);
+
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+
+  overflow: visible;
+}
+
+/* =========================================================
+   DEVELOPER STICKER
+========================================================= */
+
+.developer-sticker {
+  position: relative;
+
+  width: 170px;
+
+  min-width: 170px;
+
+  height: 170px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: center;
+}
+
+/* Glow behind sticker */
+
+.sticker-glow {
+  position: absolute;
+
+  width: 140px;
+
+  height: 140px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.65),
+    transparent 70%
+  );
+
+  filter: blur(15px);
+
+  animation: stickerGlow 3s ease-in-out infinite;
+}
+
+/* =========================================================
+   DEVELOPER IMAGE
+========================================================= */
+
+.developer-image {
+  position: relative;
+
+  z-index: 2;
+
+  width: 165px;
+
+  height: 165px;
+
+  object-fit: contain;
+
+  /* Sticker effect */
+
+  filter: drop-shadow(0 8px 0 white)
+    drop-shadow(0 12px 20px rgba(0, 0, 0, 0.35));
+
+  animation: developerFloat 4s ease-in-out infinite;
+
+  transition: transform 0.3s ease;
+}
+
+/* Hover */
+
+.developer-footer-card:hover .developer-image {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+/* =========================================================
+   STICKER ANIMATIONS
+========================================================= */
+
+@keyframes developerFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes stickerGlow {
+  0%,
+  100% {
+    transform: scale(0.9);
+
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.15);
+
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   DEVELOPER INFORMATION
+========================================================= */
+
+.developer-info {
+  flex: 1;
+}
+
+.developer-label {
+  display: inline-block;
+
+  padding: 5px 11px;
+
+  margin-bottom: 8px;
+
+  border-radius: 999px;
+
+  background: rgba(99, 102, 241, 0.12);
+
+  border: 1px solid rgba(99, 102, 241, 0.25);
+
+  color: #a5b4fc;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.developer-info h3 {
+  margin: 3px 0 4px;
+
+  font-size: 27px;
+
+  font-weight: 700;
+
+  background: linear-gradient(90deg, #ffffff, #93c5fd, #c4b5fd);
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  color: transparent;
+}
+
+.developer-role {
+  margin: 0 0 10px;
+
+  color: #67e8f9;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.developer-description {
+  max-width: 550px;
+
+  margin: 0 0 18px;
+
+  color: #94a3b8;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   SOCIAL BUTTONS
+========================================================= */
+
+.developer-socials {
+  display: flex;
+
+  gap: 9px;
+}
+
+.social-btn {
+  width: 38px;
+
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 11px;
+
+  text-decoration: none;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.social-btn:hover {
+  color: white;
+
+  transform: translateY(-4px);
+
+  background: rgba(99, 102, 241, 0.25);
+
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+}
+
+/* =========================================================
+   SOCIAL ICON TEXT
+========================================================= */
+
+.social-btn span {
+  font-size: 15px;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 25px;
+
+  color: #64748b;
+
+  font-size: 11px;
+
+  text-align: center;
+}
+
+.footer-divider {
+  color: #475569;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+  .developer-footer-card {
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 35px 25px;
+
+    gap: 15px;
+  }
+
+  .developer-sticker {
+    width: 150px;
+
+    min-width: 150px;
+
+    height: 150px;
+  }
+
+  .developer-image {
+    width: 145px;
+
+    height: 145px;
+  }
+
+  .developer-description {
+    margin-left: auto;
+
+    margin-right: auto;
+  }
+
+  .developer-socials {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+}
